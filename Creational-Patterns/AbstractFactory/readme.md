@@ -14,3 +14,6 @@
   <li>Se por acaso o seu sistema precisa que os produtos sejam criados/manipulados de maneira diferente.</li>
   <li>Se você tiver uma bilbioteca de classes e quer revelar somente suas interfaces, não implementações</li>
 </ul>
+
+
+### :heavy_check_mark: Vantagens e :x: Desvantagens
