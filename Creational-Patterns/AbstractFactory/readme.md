@@ -9,5 +9,8 @@
 ### Quando usar :question: 
 
 <ul>
-  <li>Quando o sistema deve ser configurado para funcionar com famílias de produtos</li>
+  <li>Quando o sistema deve ser configurado para funcionar com famílias de produtos.</li>
+  <li>Quando deseja criar um conjunto de objetos relacionados ou dependentes que devem ser usados juntos.</li>
+  <li>Se por acaso o seu sistema precisa que os produtos sejam criados/manipulados de maneira diferente.</li>
+  <li>Se você tiver uma bilbioteca de classes e quer revelar somente suas interfaces, não implementações</li>
 </ul>
