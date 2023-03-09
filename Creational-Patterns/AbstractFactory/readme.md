@@ -16,4 +16,14 @@
 </ul>
 
 
-### :heavy_check_mark: Vantagens e :x: Desvantagens
+## :heavy_check_mark: Vantagens e :x: Desvantagens
+
+<ul>
+  <li>Isola as classes concretas dos clientes.</li> :heavy_check_mark:
+  <li>Facilita a troca de familia de produtos.</li> :heavy_check_mark:
+  <li>Promove a consistência de produtos (Não mistura objetos de familias diferentes).</li> :heavy_check_mark:
+  <li>Dificulta a criação de novos produtos ligeiramente diferentes (pois temos que modificar a 
+  fabrica abstrata e todas as fabricas concretas)</li> :x: 
+  <li>Se tivermos muitas familias de produtos teremos excesso de classes das fábrias concretas</li> :x: 
+</ul>
+
