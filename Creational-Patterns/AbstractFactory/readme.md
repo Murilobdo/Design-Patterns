@@ -1,4 +1,4 @@
-# Padrão Abstract Factory - A Fábrica de fábricas de objetos :D
+# Padrão Abstract Factory - A Fábrica de fábricas de objetos :thinking:
 
 ## Basicamente que ele prove uma interface para criação de famílias de objetos relacionados sem especificar sua classe concreta (A Classe pai).
 
