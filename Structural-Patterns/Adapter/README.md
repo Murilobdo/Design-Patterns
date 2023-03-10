@@ -25,6 +25,6 @@
 
 <ul>
   <li>A complexidade geral do código aumenta porque você precisa introduzir </br>
-  um conjunto de novas interfaces e classes.
+  um conjunto de novas interfaces e classes. :x:
   </li> 
 </ul>
