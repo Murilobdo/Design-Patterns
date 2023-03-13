@@ -1,7 +1,6 @@
 # Padrão Iterator :handshake:
 
-### Este padrão tem como objetivo as coleções Listas, Pilhas, Filas, Avores entre outras, o Iterator fornece uma maneira de percorrer
-### os elementos sequencialmente sem expor a implementação/lógica da collection.
+### Este padrão tem como objetivo as coleções Listas, Pilhas, Filas, Avores entre outras, o Iterator fornece uma maneira de percorrer os elementos sequencialmente sem expor a implementação/lógica da collection.
 
 
 ![image](https://jucimarjr.github.io/zelda/design_patterns/iterator/IteratorDP.png)
