@@ -1,7 +1,8 @@
 # Padrão Adapter :electric_plug:
 
-### Este padrão ele atua como uma ponte entre 2 interfaces independentes ou incompativeis permitindo sua colaboração entre elas.
+<h3> Este padrão ele atua como uma ponte entre 2 interfaces independentes ou incompativeis permitindo sua colaboração entre elas. </h3>
 
+<h3> Diagrama UML do Padrão Adapter </h3>
 
 ![image](https://upload.wikimedia.org/wikipedia/commons/4/4e/Adapter_pattern.png)
 
