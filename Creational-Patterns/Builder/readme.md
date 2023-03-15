@@ -1,14 +1,13 @@
-# Padrão Builder :building_construction:
+<h1>Padrão Builder :building_construction: </h1>
 
-## O Objetivo do padrão Builder e simplificar a construção de um objeto complexo tornando possivel que o mesmo objeto 
-## crie representações diferentes, ele separa o código que cria o objeto do que usa o objeto.
+<h3>O Objetivo do padrão Builder e simplificar a construção de um objeto complexo tornando possivel que o mesmo objeto crie representações diferentes, ele separa o código que cria o objeto do que usa o objeto.</h3>
 
-# O que seria um objeto complexo ?
+<h3> O que seria um objeto complexo ? </h3>
 Pode ser considerado um objeto complexo aquele que tem um construtor muito grande com varios paramêtros ou que </br>
 possui muitos objetos atrelados a ele
 
 ## Diagrama UML do padrão Builder
-![image]([https://www.dofactory.com/images/diagrams/net/builder.gif])
+![image](https://www.dofactory.com/images/diagrams/net/builder.gif)
 
 ## Quando usar :question: 
 
