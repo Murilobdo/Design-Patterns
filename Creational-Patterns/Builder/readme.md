@@ -8,7 +8,7 @@ Pode ser considerado um objeto complexo aquele que tem um construtor muito grand
 possui muitos objetos atrelados a ele
 
 ## Diagrama UML do padrão Builder
-![image]([https://user-images.githubusercontent.com/36682707/224127198-a8526c57-1faf-49cb-a2fc-fbd1396b117a.png](https://www.dofactory.com/images/diagrams/net/builder.gif))
+![image]([https://www.dofactory.com/images/diagrams/net/builder.gif])
 
 ## Quando usar :question: 
 
