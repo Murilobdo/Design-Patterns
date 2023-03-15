@@ -1,7 +1,7 @@
 # Padrão Abstract Factory - A Fábrica de fábricas de objetos :thinking:
 
-<h2>Basicamente que ele prove uma interface para criação de famílias de objetos relacionados sem especificar sua classe concreta (A Classe pai). </br>
-Dessa maneira ele encapsula um grupo de fábricas individuais que possuem um tema em comum, abaixo um diagrama ER do padrão Abstract Factory</h2>
+<h3>Basicamente que ele prove uma interface para criação de famílias de objetos relacionados sem especificar sua classe concreta (A Classe pai). </br>
+Dessa maneira ele encapsula um grupo de fábricas individuais que possuem um tema em comum, abaixo um diagrama ER do padrão Abstract Factory</h3>
 
 <h3>Diagrama UML do padrão Abstract Factory</h3>
 
