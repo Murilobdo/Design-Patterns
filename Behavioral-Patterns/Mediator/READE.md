@@ -1,6 +1,6 @@
 # Padrão Mediator :sunglasses:
 
-<h3>O padrão Mediator tem como finalidade permitir que um grupo de objetos se cominiquem entre si sem que haja </br>
+<h3>O padrão Mediator tem como finalidade permitir que um grupo de objetos se cominiquem entre si sem que haja
 um acoplamento entre eles através de um objeto mediador.</h3>
 
 <h3> Diagrama UML do Padrão Mediator</h3>
