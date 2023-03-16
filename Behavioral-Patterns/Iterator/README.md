@@ -1,7 +1,8 @@
 # Padrão Iterator :handshake:
 
-### Este padrão tem como objetivo as coleções Listas, Pilhas, Filas, Avores entre outras, o Iterator fornece uma maneira de percorrer os elementos sequencialmente sem expor a implementação/lógica da collection.
+<h3>Este padrão tem como objetivo as coleções Listas, Pilhas, Filas, Avores entre outras, o Iterator fornece uma maneira de percorrer </br> os elementos sequencialmente sem expor a implementação/lógica da collection. </h3>
 
+<h3> Diagrama UML do Padrão Iterator</h3>
 
 ![image](https://jucimarjr.github.io/zelda/design_patterns/iterator/IteratorDP.png)
 
