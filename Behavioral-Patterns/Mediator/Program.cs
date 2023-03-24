@@ -10,6 +10,7 @@ User julia = new ConcreteUser(mediator, "Julia");
 User fabricio = new ConcreteUser(mediator, "Fabricio");
 
 mediator.RegisterUser(murilo, isabel, felipe, julia, fabricio);
+
 murilo.Send("Sejam muito bem vindos ao time corporativo.");
 
 Console.ReadLine();
