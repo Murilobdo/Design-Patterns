@@ -10,23 +10,22 @@
 ## Quando usar :question: 
 
 <ul>
-  <li>Por exemplo em uma situação onde você tem uma API que trabalha em JSON mas precisa consumir dados de uma outra api de terceiros </br>
-  que trabalha no formato XML, você poderia usar um Adapter para fazer que com as 2 APIs se conversem entre si.
-  </li>
+  <li>Quando queremos ocultar os detalhes da implementação do cliente. </br>
+  <li>Quando precisamos alterar uma implementação sem compilar a abstração. </br>
+  <li>Quando queremos compartilhar uma implementaçao entre varios objetos e isso deve ser escondido do cliente.</li>
 </ul>
 
 
 ## :heavy_check_mark: Vantagens 
 
 <ul>
-  <li>Possibilidade de converter uma interface em outra. :heavy_check_mark: </li> 
-  <li>Introduzir um componente legado em um novo sistema. :heavy_check_mark: </li> 
+  <li>Estimula a implementação de um codigo fracamente acoplado. :heavy_check_mark: </li> 
+  <li>Aumenta a capacidade de manutenção e reutilização do código e reduz a duplicação de código. :heavy_check_mark: </li> 
+  <li>Ajuda a promover o principio <b>Aberto-Fechado</b>. :heavy_check_mark: </li> 
 </ul>
 
 ## :x: Desvantagens
 
 <ul>
-  <li>A complexidade geral do código aumenta porque você precisa introduzir </br>
-  um conjunto de novas interfaces e classes. :x:
-  </li> 
+  <li>Aumenta a complexidade no código. :x: </li> 
 </ul>
