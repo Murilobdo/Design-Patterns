@@ -1,2 +1,17 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+
+
+using Factory;
+using Factory.creator;
+using Factory.product;
+
+PizzaFactoryMethod pizzariaSP = PizzaSimpleFactory.CriarPizzaria("SP");
+
+Pizza pizzaMussarelaSP = pizzariaSP.MontaPizza("M");
+Console.WriteLine(pizzaMussarelaSP.Preparar());
+
+Console.WriteLine("----------------------------------------------------------------------");
+
+PizzaFactoryMethod pizzariaRJ = PizzaSimpleFactory.CriarPizzaria("RJ");
+Pizza pizzaCalabresalaSP = pizzariaRJ.MontaPizza("C");
+Console.WriteLine(pizzaCalabresalaSP.Preparar());
