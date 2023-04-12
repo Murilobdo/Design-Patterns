@@ -10,9 +10,7 @@
 ## Quando usar :question: 
 
 <ul>
-  <li>Quando precisar ter mais controle sobre os passos de criação do objeto complexo.</li>
-  <li>quando a instacia do objeto exige muitos paramêtros no construtor.</li>
-  <li>Quando você quiser esconder os detalhes no processo de ciração do objeto..</li>
+  <li>A utilização do padrão Factory é útil quando você precisa criar objetos dinamicamente sem conhecer a classe de implementação.</li>
 </ul>
 
 

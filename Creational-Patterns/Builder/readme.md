@@ -14,7 +14,7 @@ possui muitos objetos atrelados a ele
 <ul>
   <li>Quando precisar ter mais controle sobre os passos de criação do objeto complexo.</li>
   <li>quando a instacia do objeto exige muitos paramêtros no construtor.</li>
-  <li>Quando você quiser esconder os detalhes no processo de ciração do objeto..</li>
+  <li>Quando você quiser esconder os detalhes no processo de ciração do objeto.</li>
 </ul>
 
 
