@@ -1,6 +1,6 @@
 # Padrão Decorator :bookmark_tabs:
 
-<h3>Ele se encarrega de atribuir responsabilidades adicionais a um objeto de forma dinâmica sem afetar o comportamento <br>
+<h3>Ele se encarrega de atribuir responsabilidades adicionais a um objeto de forma dinâmica sem afetar o comportamento
 de outros objetos da mesma classe, fornece uma alternativa flexível á herança para estender uma funcionalidade.
 </h3>
 
