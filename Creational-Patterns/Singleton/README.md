@@ -1,4 +1,4 @@
-# Padrão Singleton - Uma unica instancia :point_up:
+# Padrão Singleton - Uma unica instância :point_up:
 
 <h3>Usado principalmente para controlar as intâncias no caso obtem somente 1 para todas as vezes que for instanciada,
 sempre sera a mesma instância usado para controlar conexões com banco de dados, arquivos, HTTP.</h3>
