@@ -11,11 +11,11 @@ usando uma instanância de outra classe que possui a mesma interface.</h3>
 <h3>Diagrama UML do Padrão Proxy </h3>
 <ul>
     <li>
-        <b>Proxy Virtual:</b> é um espaço reservado para objetos que consome muitos recursos para serem criados.
+        <b>Proxy Virtual:</b> é um espaço reservado para objetos que consomem muitos recursos para serem criados.
         Neste contexto o objeto real só é criado quando um cliente primeiro solicita ou acessa o objeto.
     </li>
     <li>
-        <b>Proxy Remoto:</b> Fornce representação local para um objeto que reside em um espaço de endereço diferente.
+        <b>Proxy Remoto:</b> Fornece representação local para um objeto que reside em um espaço de endereço diferente.
     </li>
     <li>
         <b>Proxy de Proteção:</b> Controla o acesso a um objeto principal. Aqui o objeto proxy verifica se o chamador tem as permissões de acesso necessárias antes de encaminhar a solicitação.
