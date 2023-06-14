@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+
+using Flyweight.Models;
+
+for (int i = 0; i < 3; i++)
+{
+    var circulo = (Circulo)FormaFactory.GetForma("Circulo");
+    circulo.SetCor("Verde");
+    circulo.Desenhar();
+}
