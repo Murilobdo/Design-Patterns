@@ -5,7 +5,7 @@
   - Exemplo:
     * Cálculo de diferentes impostos (FGTS, IR) dependendo do salário de funcionário podem virar diferentes classes, uma por imposto, mas com implementações especificas para cada faixa.
 
-## Sobre o Factory Method
+## Sobre o Abstract Factory
    - Disponibiliza uma interface para criar um conjunto de objetos em uma *superclasse*, o chamado Abstract Factory, deixando o cargo de decidir a gamília de objetos a ser criada.
    - A cada nova "familia" a ser inserida na lógica da aplicação, a *superclasse* sera atualizada sem imapcatar nas demais classes criadas.
    

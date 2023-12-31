@@ -1,15 +1,25 @@
-﻿
-using Prototype.models;
+var builder = WebApplication.CreateBuilder(args);
 
-Soldado soldado1 = new();
-soldado1.Nome = "Soldado 1";
-soldado1.Arma = "Fuzil HK";
-soldado1.Acessorio.Nome = "Granda";
+// Add services to the container.
 
-Soldado soldado2 = (Soldado)soldado1.Clone();
-soldado1.Nome = "Soldado 2";
-soldado1.Arma = "Fuzil AK 47";
-soldado1.Acessorio.Nome = "C4";
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-soldado1.Mostra();
-soldado2.Mostra();
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

@@ -1,17 +1,25 @@
-﻿
-using Builder.ConcreteBuilder;
-using Builder.Director;
+var builder = WebApplication.CreateBuilder(args);
 
-var pizzaria = new PizzariaDirector(new PizzaCalabresa());
-pizzaria.MontarPizza();
-var pizzaCalabresa = pizzaria.GetPizza();
-pizzaCalabresa.ExibirConteudo();
+// Add services to the container.
 
-Console.WriteLine(" ");
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-pizzaria = new PizzariaDirector(new PizzaMussarela());
-pizzaria.MontarPizza();
-var pizzaMussarela = pizzaria.GetPizza();
-pizzaMussarela.ExibirConteudo();
+var app = builder.Build();
 
-Console.ReadKey();
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

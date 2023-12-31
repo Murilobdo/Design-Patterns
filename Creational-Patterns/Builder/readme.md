@@ -1,36 +1,16 @@
-<h1>Padrão Builder :building_construction: </h1>
+# Implementação do Design Pattern Builder
 
-<h3>O Objetivo do padrão Builder e simplificar a construção de um objeto complexo tornando possivel que o mesmo objeto crie representações diferentes, ele separa o código que cria o objeto do que usa o objeto.</h3>
+## O Problema
+  - inicialização de objetos complexos, que envolvam muitos dados e agrupamentos de objetos.
+  - Exemplos:
+    * Montar um objeto de boleto, que contém diversos paramêtros.  
 
-<h3> O que seria um objeto complexo ? </h3>
-Pode ser considerado um objeto complexo aquele que tem um construtor muito grande com varios paramêtros ou que </br>
-possui muitos objetos atrelados a ele
-
-## Diagrama UML do padrão Builder
-![image](https://www.dofactory.com/images/diagrams/net/builder.gif)
-
-## Quando usar :question: 
-
-<ul>
-  <li>Quando precisar ter mais controle sobre os passos de criação do objeto complexo.</li>
-  <li>quando a instacia do objeto exige muitos paramêtros no construtor.</li>
-  <li>Quando você quiser esconder os detalhes no processo de ciração do objeto.</li>
-</ul>
-
-
-## :heavy_check_mark: Vantagens 
-
-<ul>
-  <li>Permite esconder os detalhes de como os objetos são criados. :heavy_check_mark:</li>
-  <li>Permite uma grande variedade de representações internas do objeto a ser contruído. :heavy_check_mark:</li>
-  <li>Fornce um grande controle sobre o processo de criação do objeto complexo. :heavy_check_mark:</li>
-  <li>Cada Builder e independente dos outros builders e do restante da aplicação. :heavy_check_mark:</li>
-</ul>
-
-## :x: Desvantagens
-
-<ul>
-   <li>O número de linhas de código aumenta conforme a complexidade do objeto e os tipos de objetos que vamos </br>
-   construir podendo haver duplicação de parte do código :x: </li>
-  <li>Requer a criação de um ConcreteBuilder separado para cada tipo de produto :x: </li>
-</ul>
+## Sobre o Builder
+  - Propõe que o código de criação de objetos seja movido para fora da classe.
+  - São definidos passos para a construção do objeto, de maneira a deixar o processo mais legível e simplificado.
+  - Em alguns conários será necessário criar diferentes implementações de um Builder, para tipos diferentes de objeto. 
+   
+## Vamos para um exemplo 
+  - Em nosso caso, vamos utilizar o seguinte exemplo:
+    * Precisamos intanciar um objeto de Boleto.
+    * Ele contém dados de diversos agrupamentos de dados, com Dados de Recebedor, Pagador, além dos próprios dados do boleto, como o numero, valor do documento, entre outros.
