@@ -1,30 +1,18 @@
-<h1>Padrão Factory :factory_worker:	</h1>
+# Implementação do Design Pattern Factory Method
 
-<h3>O padrão <b>Factory</b> tem como principal objetivo nos auxiliar a reduzir acoplamento em nosso software, ou seja, ele vai manter dependências flexiveis e para isto, fazendo com que as dependências deixem de ser explicítas </h3>
+## O Problema
+  - Uso demasiado de estruturas condicionais para a criação de objetos.
+  - Seu código precisa utilizar muito estruturas condicionais para decidir qual instância de classe utilizar.
+  - Exemplos:
+    * Tipo de notificação (e-mail, SMS, etc)
+    * Meios de Pagamentos (Cartão, Boleto, Saldo em conta digital, etc)
+  - Ou seja, a cada nova classe a ser utilizada, mais uma condicional sera adicionada, ea classe ficará cada vez maior e complexa.
 
+## Sobre o Factory Method
+  - Disponibiliza uma interface para criar objetos em uma *superclasse*, o chamado Factory, deixando ela a cargo de decidir o tipo de objeto a ser criado.
+  - A cada novo objeto a ser inserido na lógica da aplicação, a superclasse sera atualziada e não impactara as classes ja existentes.
 
-
-## Diagrama UML do padrão Builder
-![image](https://i.stack.imgur.com/N3mC1.png)
-
-## Quando usar :question: 
-
-<ul>
-  <li>A utilização do padrão Factory é útil quando você precisa criar objetos dinamicamente sem conhecer a classe de implementação.</li>
-</ul>
-
-
-## :heavy_check_mark: Vantagens 
-
-<ul>
-  <li>As subclasses <b>Factory</b> possuem controle total sobre o processo de criação dos objetos podendo retornar 
-  o tipo desejado ou uma subclasse. :heavy_check_mark:</li>
-  <li>Remoçao do forte acoplamento entre as classes. :heavy_check_mark:</li>
-  <li>Facilita a manutenção do código. :heavy_check_mark:</li>
-</ul>
-
-## :x: Desvantagens
-
-<ul>
-   <li>Complexidade: O <b>Factory</b> Method Pattern pode adicionar complexidade ao código, especialmente em aplicativos pequenos :x: </li>
-</ul>
+## Vamos para um exemplo 
+  - Em nosso caso, vamos utilizar o seguinte exemplo:
+    * Temos uma startup com um E-commerce, e processamos pagamentos ao receber pedidos, extraindo os dados e decidindo como proceder.
+    * Porém, temos uma série de complexidades nesse processo em nosso código... O primeiro deles, e que como estamos em grande crescimento, preciamos frequentemente adicionar novos modos de pagamento.
