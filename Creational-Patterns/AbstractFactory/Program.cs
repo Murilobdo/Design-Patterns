@@ -1,28 +1,25 @@
-﻿using AbstractFactory.Factory;
-using AbstractFactory.Models;
+var builder = WebApplication.CreateBuilder(args);
 
-//Criando as fabricas
-var boloFactory = MassaAbstractFactory.CriarFabricaMassa(TipoMassa.BOLO);
-var pizzaFactory = MassaAbstractFactory.CriarFabricaMassa(TipoMassa.PIZZA);
+// Add services to the container.
 
-//Criando tipos de bolo
-var boloLaranja = boloFactory.CriarMassa((TipoMassa)TipoBolo.LARANJA);
-var boloChocolate = boloFactory.CriarMassa((TipoMassa)TipoBolo.CHOCOLATE);
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-//Criando tipos de pizza
-var pizzaMussarela = pizzaFactory.CriarMassa((TipoMassa)TipoPizza.MUSSARELA);
-var pizzaCalabresa = pizzaFactory.CriarMassa((TipoMassa)TipoPizza.CALABRESA);
+var app = builder.Build();
 
-
-Mostra(boloLaranja);
-Mostra(boloChocolate);
-Mostra(pizzaMussarela);
-Mostra(pizzaCalabresa);
-
-void Mostra(MassaBase massa) {
-    Console.WriteLine($"Nome: {massa.Nome}");
-    Console.WriteLine($"Tipo: {massa.TipoMassa}");
-    Console.WriteLine($"Ingredientes: {massa.Ingredientes[0]}");
-    Console.WriteLine(" ");
-    Console.WriteLine(" ");
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

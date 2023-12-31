@@ -1,35 +1,18 @@
-# Padrão Abstract Factory - A Fábrica de fábricas de objetos :thinking:
+# Implementação do Design Pattern Abstract Factory
 
-<h3>Basicamente que ele prove uma interface para criação de famílias de objetos relacionados sem especificar sua classe concreta (A Classe pai). </br>
-Dessa maneira ele encapsula um grupo de fábricas individuais que possuem um tema em comum, abaixo um diagrama ER do padrão Abstract Factory</h3>
+## O Problema
+  - Uso demasiado de estruturas condicionais para a criação de conjuntos de objetos, especificos para cada condição.
+  - Exemplo:
+    * Cálculo de diferentes impostos (FGTS, IR) dependendo do salário de funcionário podem virar diferentes classes, uma por imposto, mas com implementações especificas para cada faixa.
 
-<h3>Diagrama UML do padrão Abstract Factory</h3>
-
-![image](https://user-images.githubusercontent.com/36682707/224127198-a8526c57-1faf-49cb-a2fc-fbd1396b117a.png)
-
-## Quando usar :question: 
-
-<ul>
-  <li>Quando o sistema deve ser configurado para funcionar com famílias de produtos.</li>
-  <li>Quando deseja criar um conjunto de objetos relacionados ou dependentes que devem ser usados juntos.</li>
-  <li>Se por acaso o seu sistema precisa que os produtos sejam criados/manipulados de maneira diferente.</li>
-  <li>Se você tiver uma bilbioteca de classes e quer revelar somente suas interfaces, não implementações</li>
-</ul>
-
-
-## :heavy_check_mark: Vantagens 
-
-<ul>
-  <li>Isola as classes concretas dos clientes. :heavy_check_mark: </li> 
-  <li>Facilita a troca de familia de produtos. :heavy_check_mark: </li> 
-  <li>Promove a consistência de produtos (Não mistura objetos de familias diferentes). :heavy_check_mark:</li> 
- 
-</ul>
-
-## :x: Desvantagens
-
-<ul>
-   <li>Dificulta a criação de novos produtos ligeiramente diferentes (pois temos que modificar a </br>
-  fabrica abstrata e todas as fabricas concretas)  :x: </li>
-  <li>Se tivermos muitas familias de produtos teremos excesso de classes das fábrias concretas :x: </li>
-</ul>
+## Sobre o Factory Method
+   - Disponibiliza uma interface para criar um conjunto de objetos em uma *superclasse*, o chamado Abstract Factory, deixando o cargo de decidir a gamília de objetos a ser criada.
+   - A cada nova "familia" a ser inserida na lógica da aplicação, a *superclasse* sera atualizada sem imapcatar nas demais classes criadas.
+   
+## Vamos para um exemplo 
+  - Em nosso caso, vamos utilizar o seguinte exemplo:
+    * Ainda com o exemplo da Startup de E-Commerce, surgiu a necessidade de restringir o pagamento e envio dependendo se a compra e internacional ou não.
+      - Se for internacional, o pagamento e só por cartão de crédito.
+      - Se for nacional, o pagamento pode ser feito por cartão ou boleto.
+      - Ambas têm maneiras distintas de processar o envio.
+    * Se no futuro quisermos adicionar mais uma condição sobre essa familia de objetos relacionado a pagamento e envio e (e possivelmente outras mais!), precisaremoos adicionar maios uma condicionar, que pode se tornar complexa.
