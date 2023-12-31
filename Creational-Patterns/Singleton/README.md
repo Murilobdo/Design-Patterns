@@ -1,23 +1,12 @@
-# Padrão Singleton - Uma unica instância :point_up:
+# Implementação do Design Pattern Singleton
 
-<h3>Usado principalmente para controlar as intâncias no caso obtem somente 1 para todas as vezes que for instanciada,
-sempre sera a mesma instância usado para controlar conexões com banco de dados, arquivos, HTTP.</h3>
+## O Problema
+  - Garantir que uma classe tenha apenas uma única instância.
+  - Comum de se utilizar com dados que sejam mais estáticos, como configuações.
 
-<h3>Diagrama UML do padrão Abstract Singleton</h3>
+## Sobre o Singleton
+  - Garante que vai existir apenas uma instância de uma classe, fornecendo um ponto de acesso global a ela.
+  - O Framework ASP NET Core contém funcionalidades nativas de injeção de dependência como suporte a tempo de ciclo de vida, incluindo o Singleton.
 
-![image](https://arquivo.devmedia.com.br/artigos/Higor_Medeiros/PadraoSingleton/PadraoSingleton_Java1.jpg)
-
-## Quando usar :question: 
-
-<ul>
-  <li>Pode ser usado para controlar a concorrencia de recursos compartilhados.</li>
-  <li>Quando a Classe e usada por varias partes do sistema e não gerencia nenhum estado da aplicação <br>
-  como por exemplo Logs da aplicação.</li>
-  <li>Compartilhamento de dados, como por exemplo dados do appsettings.json</li>
-</ul>
-
-## :x: Desvantagens
-
-<ul>
-   <li>Não e seguro para processos multi thread pois e bem possivel que o singleton seja criado mais de 1 vez :x: </li>
-</ul>
+## Vamos para um exemplo 
+  - Em nosso caso, vamos utilizar o seguinte exemplo

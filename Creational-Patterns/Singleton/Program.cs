@@ -1,17 +1,25 @@
-﻿
+var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 
-using Models.Singleton;
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-Singleton s1 = Singleton.Instance;
+var app = builder.Build();
 
-Singleton s2 = Singleton.Instance;
-
-if (s1 == s2)
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    Console.WriteLine("s1 e s2 são a mesma instância");
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
-else
-{
-    Console.WriteLine("s1 e s2 são instâncias diferentes");
-}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
