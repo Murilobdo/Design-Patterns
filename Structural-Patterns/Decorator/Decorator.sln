@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.001.0
+VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Decorator", "Decorator.csproj", "{572DF37C-1962-4EBE-9204-A80846132BC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesomeShopPatterns.API", "AwesomeShopPatterns.API.csproj", "{959895AC-AB17-4BBB-A7FA-839D2B8340B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{572DF37C-1962-4EBE-9204-A80846132BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{572DF37C-1962-4EBE-9204-A80846132BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{572DF37C-1962-4EBE-9204-A80846132BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{572DF37C-1962-4EBE-9204-A80846132BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{959895AC-AB17-4BBB-A7FA-839D2B8340B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{959895AC-AB17-4BBB-A7FA-839D2B8340B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{959895AC-AB17-4BBB-A7FA-839D2B8340B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{959895AC-AB17-4BBB-A7FA-839D2B8340B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2432D89B-2EF8-438C-9C3F-DE8F341570E3}
+		SolutionGuid = {247B6CCD-B5C7-4A6A-A5E0-D98111124DA4}
 	EndGlobalSection
 EndGlobal

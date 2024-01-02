@@ -1,52 +1,30 @@
-﻿
-using Decorator.ConcreteDecorator;
-using Decorator.Interfaces;
-using Decorator.Models;
+using AwesomeShopPatterns.API.Infrastructure.Payments;
 
-IPizza pizza = new Pizza();
+var builder = WebApplication.CreateBuilder(args);
 
-Console.WriteLine(pizza.Opcionais());
-Console.WriteLine($"Preço: {pizza.Preco()}");
-Console.WriteLine("Tecle algo para aplicar o padrão Decorator\n\n");
-Console.ReadKey();
+// Add services to the container.
 
-int escolha = 0;
+builder.Services.AddScoped<ExternalPaymentSlipService>();
+builder.Services.AddScoped<IExternalPaymentSlipService, ExternalPaymentSlipServiceDecorator>();
 
-do
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    Console.WriteLine("-----------------------------------------------\n");
-    Console.WriteLine($"\tPizza: {pizza.Opcionais()}");
-    Console.WriteLine($"\tPreço: {pizza.Preco()}\n");
-
-    Console.WriteLine("\tEscolha uma opção para adicionar na pizza:");
-    Console.WriteLine("\t1 - Borda recheada");
-    Console.WriteLine("\t2 - Massa especial");
-    Console.WriteLine("\t3 - Bacon");
-    Console.WriteLine("\t0 - Finalizar pedido");
-    escolha = Convert.ToInt32(Console.ReadLine());
-
-    pizza = AdicionandoIngredientes(escolha, pizza);
-} while (escolha != 0);
-
-Console.WriteLine(pizza.Opcionais());
-Console.WriteLine($"Preço: {pizza.Preco()}");
-
-IPizza AdicionandoIngredientes(int escolha, IPizza pizza)
-{
-    switch (escolha)
-    {
-        case 1:
-            pizza = new BordaRecheadaDecorator(pizza);
-            break;
-        case 2:
-            pizza = new MassaEspecialDecorator(pizza);
-            break;
-        case 3:
-            pizza = new BaconDecorator(pizza);
-            break;
-        default:
-            break;
-    }
-
-    return pizza;
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
