@@ -1,22 +1,38 @@
-﻿
+using AwesomeShopPatterns.API.Application;
+using AwesomeShopPatterns.API.Infrastructure;
+using AwesomeShopPatterns.API.Infrastructure.Proxies;
 
-using Composite.Composite;
-using Composite.Leaf;
+var builder = WebApplication.CreateBuilder(args);
 
-Organizacao organizacao = new() { Nome = "Softwares Elitegate" };
+// Add services to the container.
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
+builder.Services.AddScoped<CustomerRepositoryProxy>();
 
-Organizacao departamentoDev = new() { Nome = "Desenvolvedores" };
-Organizacao departamentoDesign = new() { Nome = "Design UX/UI" };
+builder.Services.AddSingleton<PaymentMethodsFactory>();
 
-departamentoDev.Add(new Funcionario() { Nome = "João", Horas = 15 });
-departamentoDev.Add(new Funcionario() { Nome = "Maria", Horas = 18 });
+builder.Services.AddControllers();
 
-departamentoDesign.Add(new Funcionario() { Nome = "José", Horas = 20 });
-departamentoDesign.Add(new Funcionario() { Nome = "Ana", Horas = 7 });
+builder.Services.AddHttpContextAccessor();
 
-organizacao.Add(departamentoDev);
-organizacao.Add(departamentoDesign);
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-Console.WriteLine($"Total de horas trabalhadas: {organizacao.GetHoraTrabalhada()}");
-Console.ReadLine();
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
