@@ -1,10 +1,30 @@
-﻿
-using Facade.Facade;
-using Facade.Subsistemas;
+using AwesomeShopPatterns.API.Infrastructure.Payments;
 
-CreditoFacade facade = new();
-Cliente cliente = new("João");
+var builder = WebApplication.CreateBuilder(args);
 
-bool resultado = facade.ConcederEmprestimo(cliente, 1000);
+// Add services to the container.
 
-Console.WriteLine($"O empréstimo foi {(resultado ? "concedido" : "negado")}.");
+builder.Services.AddScoped<ExternalPaymentSlipService>();
+builder.Services.AddScoped<IExternalPaymentSlipService, ExternalPaymentSlipServiceDecorator>();
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

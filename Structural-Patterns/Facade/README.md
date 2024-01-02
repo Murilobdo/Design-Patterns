@@ -1,41 +1,16 @@
-# Padrão Facade :chains:
+# Implementação do Design Pattern Facade
 
-<h3>Este padrão fornece uma interface unificada para um conjunto de interfaces em um subsistema, é definida
-uma interface de nivel superior (no topo de um grupo de  subsistemas) para maior facilidade na hora de usar.</h3>
+## O Problema
+  - Utilização de bibliotecas, frameworks ou conjunto complexo de classes.
+  - Nesses casos, a utilização é dificultada por conta de configuração e inicialização de objetos, chamadas de métodos, tratamento de retornos, entre outras atividades.
+  - Exmeplos:
+    * Chamadas HTTP a APIs terceiras, como serviços de computação em Nuvem e integração entre sistemas.
+    * Bibliotecas ou frameworks no ggeral que tenham interfaces complexas.
 
-<h3> Diagrama UML do Padrão Facade </h3>
+## Sobre o Facade
+  - Propõe que seja criada uma interface simplificada para uma biblioteca, framework ou conjunto complexo de classes.
+  - Com isso, apesar de se ter funcionalidades limitadas quando comparado ao acesso direto, ela simplifica o uso das funcionalidades ao conter apenas as necessárias, realizando uma adaptação de interfaces (opa, Adapter ?) quando necessário.
 
-![image](https://arquivo.devmedia.com.br/artigos/Higor_Medeiros/PadraoFacade_Java/PadraoFacade_Java1.jpg)
-
-## Quando usar :question: 
-
-<ul>
-    <li>Quando queremos simplificar uma sequência de operações complexas.</li>
-    <li>Quando queremos simplificar a interface com o usuário.</li>
-    <li>Quando queremos fornecer uma interface única de uniforme para as diversas 
-        funcionalidades de um subsistema.
-    </li>
-    <li>Quando queremos criar um sistema em camadas. Um Facade provê o ponto de entrada
-        para cada camada do subsistema.
-    </li>
-</ul>
-
-
-## :heavy_check_mark: Vantagens 
-
-<ul>
-    <li>Facilita a portabilidade do sistema e sua interação com o subsistema. :heavy_check_mark: </li> 
-    <li>Isola os clientes dos componentes do subsistema reduzindo o número de 
-        objetos com os aquias o cliente tem que lidar. :heavy_check_mark: </li> 
-    <li>Promove um acoplamente fraco entre  o subsistema e seus clientes. :heavy_check_mark: </li> 
-</ul>
-
-## :x: Desvantagens
-
-<ul>
-    <li>Introduzr uma camada adicional entre o cliente e o subsistema, o que contribui para
-        a complexibilidade do código. :x: </li> 
-    <li>Cria uma depêndencia entre vários subsistemas, pois vários métodos são chamados a partir deles
-        para servir ao cliente. :x: </li> 
-    <li>As APIs específicas do cliente precisam ser introduzidas na classe Facade, e isso requer manutenção adicional. :x: </li> 
-</ul>
+## Vamos para um exemplo 
+  - Em nosso caso, vamos utilizar o seguinte exemplo:
+    * Precisamos enviar dados para uma API terceira de detecção de fraude, com dados como documento do cliente e total do pedido.
