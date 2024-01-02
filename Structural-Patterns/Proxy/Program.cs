@@ -1,9 +1,38 @@
-﻿
+using AwesomeShopPatterns.API.Application;
+using AwesomeShopPatterns.API.Infrastructure;
+using AwesomeShopPatterns.API.Infrastructure.Proxies;
 
-using Proxy.Models;
-using Proxy.Proxy;
+var builder = WebApplication.CreateBuilder(args);
 
-Funcionario funcionario = new("João", "123", "CEO");
-PastaCompartilhadaProxy proxy = new(funcionario);
+// Add services to the container.
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
-proxy.OperacaoDeLeituraGravacao();
+builder.Services.AddScoped<CustomerRepositoryProxy>();
+
+builder.Services.AddSingleton<PaymentMethodsFactory>();
+
+builder.Services.AddControllers();
+
+builder.Services.AddHttpContextAccessor();
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
