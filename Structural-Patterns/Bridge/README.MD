@@ -1,31 +1,22 @@
-# Padrão Bridge :bridge_at_night:
+# Implementação do Design Pattern Bridge
 
-<h3>O padrão Bridge ele desacopla uma abstração de sua implementação para que as duas possam variar de forma independente.</h3>
-<h3>Divide a logica de negocio em hierarquias de classes separadas que podem ser desenvolvidas independentemente. </h3>
-
-<h3> Diagrama UML do Padrão Bridge </h3>
-
-![image](https://wiki.cdot.senecacollege.ca/w/imgs/Bridge.gif)
-
-## Quando usar :question: 
-
-<ul>
-  <li>Quando queremos ocultar os detalhes da implementação do cliente. </br>
-  <li>Quando precisamos alterar uma implementação sem compilar a abstração. </br>
-  <li>Quando queremos compartilhar uma implementaçao entre varios objetos e isso deve ser escondido do cliente.</li>
-</ul>
+## O Problema
+  - Hierarquias complexas de classes relacionadas que tornam a extensão delas e suas combinações uma tarefa complexa.
 
 
-## :heavy_check_mark: Vantagens 
+## Sobre o Bridge
+  - Permite simplificar hierarquias de classes em complexas.
+  - Ao invés de criar classes que representem cada uma das diferentes combinações, um item pode utilizar uma interface de Unidade, que poderá ter as implementações dos seus diferentes tipos.
+  - Logo, teríamos as hierarquias
+    * Item
+    * Unidade
+  - Com isso, respeitamos o Open-Closed Principle (OCP) do SOLID.
 
-<ul>
-  <li>Estimula a implementação de um codigo fracamente acoplado. :heavy_check_mark: </li> 
-  <li>Aumenta a capacidade de manutenção e reutilização do código e reduz a duplicação de código. :heavy_check_mark: </li> 
-  <li>Ajuda a promover o principio <b>Aberto-Fechado</b>. :heavy_check_mark: </li> 
-</ul>
-
-## :x: Desvantagens
-
-<ul>
-  <li>Aumenta a complexidade no código. :x: </li> 
-</ul>
+## Vamos para um exemplo 
+  - Em nosso caso, vamos utilizar o seguinte exemplo:
+    * Temos 2 tipos de itens em um mercado: Produto e Comida.
+    * Cada produto ou comida pode variar em sua unidade de medida, podendo ser por Kg ou quantidade.
+    * Para isso, acabamos criando 4 classes: ProdutoPorKg, ProdutoPorQuantidade, ComidaPorKg e ComidaPorQuantidade.
+  - Se for adicionar uma nova unidade de medida (como litro), vai acabar tendo que criar um para cada tipo de produto, tornando a hierarquia de classes mais complexa e pouco flexível.
+  - Em resumo: existem diversos tipos de itens, e os itens podem utilizar uma de diversas unidades de medida.
+    * São duas características independentes, mas que podem gerar código complexo (com muitos condicionais) ao passo que crescem suas combinações.

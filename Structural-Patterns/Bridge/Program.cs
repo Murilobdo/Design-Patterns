@@ -1,21 +1,38 @@
-﻿
+using AwesomeShopPatterns.API.Application;
+using AwesomeShopPatterns.API.Infrastructure;
+using AwesomeShopPatterns.API.Infrastructure.Proxies;
 
-using Bridge.ConcreteImplementor;
-using Bridge.Domain;
-using Bridge.RefinedAbstraction;
+var builder = WebApplication.CreateBuilder(args);
 
-Funcionario funcionario = new Funcionario
+// Add services to the container.
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+builder.Services.AddScoped<CustomerRepositoryProxy>();
+
+builder.Services.AddSingleton<PaymentMethodsFactory>();
+
+builder.Services.AddControllers();
+
+builder.Services.AddHttpContextAccessor();
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    Id = 1,
-    Nome = "João",
-    SalarioBase = 1000,
-    Incentivo = 500
-};
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-var salarioJson = new CalculaSalario(new GeraJson());
-var salarioXml = new CalculaSalario(new GeraXml());
+app.UseHttpsRedirection();
 
-salarioJson.ProcessaSalarioFuncionario(funcionario);
+app.UseAuthorization();
 
-funcionario.Incentivo = 750;
-salarioXml.ProcessaSalarioFuncionario(funcionario);
+app.MapControllers();
+
+app.Run();
