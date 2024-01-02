@@ -1,20 +1,25 @@
-﻿
+var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 
-using Adapter.Adapter;
-using Adapter.Target;
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-ITarget target = new AlunoAdapter();
+var app = builder.Build();
 
-string[,] alunosArray = new string[5,4]
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    {"101", "Maria", "Artes", "1200"},
-    {"102", "Pedro", "Engenharia", "2000"},
-    {"103", "Bianca", "Veterinária", "2850"},
-    {"104", "Pamela", "Moda", "900"},
-    {"105", "Sergio", "Desenho", "850"},
-};
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-target.ProcessaCalculoMensalidade(alunosArray);
+app.UseHttpsRedirection();
 
+app.UseAuthorization();
 
+app.MapControllers();
+
+app.Run();

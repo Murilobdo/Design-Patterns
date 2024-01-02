@@ -1,31 +1,18 @@
-# Padrão Adapter :electric_plug:
+# Implementação do Design Pattern Adapter
 
-<h3> Este padrão ele atua como uma ponte entre 2 interfaces independentes ou incompativeis permitindo sua colaboração entre elas. </h3>
-
-<h3> Diagrama UML do Padrão Adapter </h3>
-
-![image](https://upload.wikimedia.org/wikipedia/commons/4/4e/Adapter_pattern.png)
-
-## Quando usar :question: 
-
-<ul>
-  <li>Por exemplo em uma situação onde você tem uma API que trabalha em JSON mas precisa consumir dados de uma outra api de terceiros </br>
-  que trabalha no formato XML, você poderia usar um Adapter para fazer que com as 2 APIs se conversem entre si.
-  </li>
-</ul>
+## O Problema
+  - Colaboração entre objetos com interfaces incompatíveis entre si.
+  - Exemplos:
+    * Integração com sistemas terceiros, que podem trabalhar com interfaces e até formatos diferentes (XML, por exemplo), com sua aplicação trabalhando primariamente com JSON.
 
 
-## :heavy_check_mark: Vantagens 
+## Sobre o Adapter
+  - Propõe que a criação de um objeto Adapter (ou Adaptador), que será responsável por converter a interface de um objeto para outro.
+  - Ele funciona como um Wrapper, internamente delegando a chamada para o objeto existente, mas retornando uma interface desejada pela aplicação.
 
-<ul>
-  <li>Possibilidade de converter uma interface em outra. :heavy_check_mark: </li> 
-  <li>Introduzir um componente legado em um novo sistema. :heavy_check_mark: </li> 
-</ul>
-
-## :x: Desvantagens
-
-<ul>
-  <li>A complexidade geral do código aumenta porque você precisa introduzir </br>
-  um conjunto de novas interfaces e classes. :x:
-  </li> 
-</ul>
+## Vamos para um exemplo 
+  - Em nosso caso, vamos utilizar o seguinte exemplo:
+    * Precisamos invocar um serviço terceiro para obter os dados de Boleto.
+    * Porém, o modelo retornado pelo serviço é incompatível com nosso modelo, especificamente nos dados de boleto, com estruturas e nomenclaturas diferentes.
+    * Por conta disso, temos uma interface de integração com o sistema terceiro *IExternalPaymentSlipService*
+    e queremos usar noss o IPaymentSlipService para retornar os dados usando nosso modelo.
