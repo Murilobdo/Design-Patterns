@@ -117,6 +117,7 @@
 
     public class Kg : IUnit
     {
+        
         public decimal Minimum { get; set; }
         public decimal Maximum { get; set; }
 
