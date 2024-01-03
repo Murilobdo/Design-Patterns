@@ -1,16 +1,45 @@
-﻿
-using Mediator;
+using AwesomeShopPatterns.API.Application;
+using AwesomeShopPatterns.API.Application.Mediator;
+using AwesomeShopPatterns.API.Infrastructure;
+using AwesomeShopPatterns.API.Infrastructure.Payments;
+using AwesomeShopPatterns.API.Infrastructure.Products;
+using AwesomeShopPatterns.API.Infrastructure.Proxies;
 
-IFacebookGroupMediator mediator = new ConcreteFacebookGroupMediator();
+var builder = WebApplication.CreateBuilder(args);
 
-User murilo = new ConcreteUser(mediator, "Murilo");
-User isabel = new ConcreteUser(mediator, "Isabel");
-User felipe = new ConcreteUser(mediator, "Felipe");
-User julia = new ConcreteUser(mediator, "Julia");
-User fabricio = new ConcreteUser(mediator, "Fabricio");
+// Add services to the container.
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IPaymentFraudCheckService, PaymentFraudCheckService>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
-mediator.RegisterUser(murilo, isabel, felipe, julia, fabricio);
+builder.Services.AddScoped<CustomerRepositoryProxy>();
 
-murilo.Send("Sejam muito bem vindos ao time corporativo.");
+builder.Services.AddSingleton<PaymentMethodsFactory>();
 
-Console.ReadLine();
+builder.Services.AddScoped<ICqrsMediator, CqrsMediator>();
+
+builder.Services.AddControllers();
+
+builder.Services.AddHttpContextAccessor();
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

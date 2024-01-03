@@ -1,33 +1,18 @@
-# Padrão Mediator :sunglasses:
+# Implementação do Design Pattern Mediator
 
-<h3>O padrão Mediator tem como finalidade permitir que um grupo de objetos se cominiquem entre si sem que haja
-um acoplamento entre eles através de um objeto mediador.</h3>
-
-<h3> Diagrama UML do Padrão Mediator</h3>
-
-![image](https://www.dofactory.com/images/diagrams/net/mediator.gif)
-
-## Quando usar :question: 
-
-<ul>
-  <li>Quando acontece uma mudança no estado de um objeto que acaba afetando outros objetos.</li>
-  <li>Quando o grande número de interconxeões entre objetos torna o sitema pesado e dificil de mudar.</li>
-  <li>Quando você deseja alterar as partes de um sistema independentemente umas das outras</li>
-</ul>
+## O Problema
+  - Estrutura e fluxo similiar entre implementações, existindo um forte acoplamento com componentes (interfaces e implementações) similares.
+  - Exemplo:
+    * Comum de se encontrar em aplicações que utilizam abstrações para caso de uso, como serviços de camada de aplicação (Arquitetura Limpa), CQRS, entre outros.
+      - O problema é que a Action do ASP.NET Core, precisa saber qual classe/interface e método especifico precisa invocar.
 
 
-## :heavy_check_mark: Vantagens 
+## Sobre o Mediator
+  - Propõe a criação de um objeto Mediator, que será responsável por delegar para o componente correspondente, removendo as comunicações diretas.
+  - Um contra desse padrão e a alta concentração de responsabilidade e acoplamento ao mediator.
 
-<ul>
-  <li>Realiza o desacoplamento entre os objetos. :heavy_check_mark: </li> 
-  <li>O fluxo de comunicação esta centralizado, com isso, alterações no mediador não afetam seus ouvintes. :heavy_check_mark: </li> 
-  <li>Simplifica o código para acessar diferentes tipos de coleção. :heavy_check_mark: </li> 
-  <li>Eliminações de relacionamentos muitos para muitos (substituindo por um para muitos). :heavy_check_mark: </li> 
-</ul>
-
-## :x: Desvantagens
-
-<ul>
-  <li>A centralização pode ser uma fonte de gargalo de desempenho de risco para o sistema em caso de falha. :x:</li> 
-  <li>Na prática os mediadores tendem a ser tornarem mais complexos. :x: </li> 
-</ul>
+## Vamos para um exemplo 
+  - Em nosso caso, vamos utilizar o seguinte exemplo:
+    * Queremos utilizar o padrão CQRS em nosso projeto (poderia ser a Arquitetura Hexagonal, com UseCases).
+    * As Actions do nosso ProductsController precisam saber qual Handler instanciar, e chamar o método Handle dele para conseguir o resultado desejado, hjavendo a comunicação direta..
+    * Isso acopla nosso Controller com cada um dos Handlers, tendo que sempre saber qual método executar dependendo do Command ou Query.
