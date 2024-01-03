@@ -10,3 +10,4 @@
 
 ## Vamos para um exemplo 
   - Em nosso caso, vamos utilizar o seguinte exemplo
+    * Nos queremos obter a hora 
