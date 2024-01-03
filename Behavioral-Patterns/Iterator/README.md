@@ -1,35 +1,14 @@
-# Padrão Iterator :handshake:
+# Implementação do Design Pattern Iterator
 
-<h3>Este padrão tem como objetivo as coleções Listas, Pilhas, Filas, Avores entre outras, o Iterator fornece uma maneira de percorrer </br> os elementos sequencialmente sem expor a implementação/lógica da collection. </h3>
+## O Problema
+  - Acoplamento com método de travessia de coleções diferentes.
+  - Quando precisamos percorrer uma coleção, muitas vezes ocorre o acoplamente com o método de travessia, ja que cada coleção tem sua própria maneira de percorrer, como em Fila, Pilha, estruturas de Árvore, entre outras.
 
-<h3> Diagrama UML do Padrão Iterator</h3>
+## Sobre o Iterator
+  - Propõe que a criação de um objeto *Iterator* (ou a extensão da classe que contém a estrutura de dados atual) para permitir a travessia de seus objetos sem expor a implementação interna.
+  - Por exemplo, com isso seria possível percorrer os dados de um dicionário interno de um objeto sem precisar conhecer sua implementação interna, percorrendo como se fosse uma lista. 
 
-![image](https://jucimarjr.github.io/zelda/design_patterns/iterator/IteratorDP.png)
-
-## Quando usar :question: 
-
-<ul>
-  <li>Quando sua coleção tiver uma estrutura de dados complexa e você deseja ocultar a complexidade dos clientes.</li>
-  <li>Pode ser usada para reduzir a duplicidade do código para percorrer as coleções.</li>
-  <li>Quando quiser que sua aplicação percorra diferentes tipos de dados ou quando o tipo da coleção </br>
-  for desconhecida no momento.</li>
-</ul>
-
-
-## :heavy_check_mark: Vantagens 
-
-<ul>
-  <li>Fornece suporte a estruturas de dados onde a aplicação originalmente não a possui. :heavy_check_mark: </li> 
-  <li>Permiti definir mais de um iterador. :heavy_check_mark: </li> 
-  <li>Simplifica o código para acessar diferentes tipos de coleção. :heavy_check_mark: </li> 
-</ul>
-
-## :x: Desvantagens
-
-<ul>
-  <li>É menos eficiente ao percorrer elementos de algumas coleções especializadas diretamente, usando mais memória </br>
-  do que fosse feito um acesso direto ao elemento. :x:
-  </li> 
-  <li>Não e recomendado para coleções simples. :x:
-  </li> 
-</ul>
+## Vamos para um exemplo 
+  - Em nosso caso, vamos utilizar o seguinte exemplo:
+    * Precisamos percorrer uma lista de clientes bloqueados e realizar uma certa ação, como notificar seus e-mails.
+    * Porém, para isso, não podemos expor a estrutura interna de um moedlo que ja estamos utilizando. No caso, estamos internamente utilizando um dicionário para armazenar os clientes e seus e-mails.

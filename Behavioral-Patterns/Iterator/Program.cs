@@ -1,22 +1,45 @@
-﻿using Iterator.Models;
+using AwesomeShopPatterns.API.Application;
+using AwesomeShopPatterns.API.Application.Mediator;
+using AwesomeShopPatterns.API.Infrastructure;
+using AwesomeShopPatterns.API.Infrastructure.Payments;
+using AwesomeShopPatterns.API.Infrastructure.Products;
+using AwesomeShopPatterns.API.Infrastructure.Proxies;
 
-ConcreteCollection collection = new();
+var builder = WebApplication.CreateBuilder(args);
 
-collection.AddCliente(new Cliente(1, "Murilo"));
-collection.AddCliente(new Cliente(2, "Isabel"));
-collection.AddCliente(new Cliente(3, "Igor"));
-collection.AddCliente(new Cliente(4, "Caio"));
-collection.AddCliente(new Cliente(5, "Julia"));
+// Add services to the container.
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IPaymentFraudCheckService, PaymentFraudCheckService>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
+builder.Services.AddScoped<CustomerRepositoryProxy>();
 
-IteratorCollection iterator = collection.CreateIterator();
+builder.Services.AddSingleton<PaymentMethodsFactory>();
 
-Console.WriteLine("## Padrão Iterator criado");
-Console.WriteLine("Pressione qualquer tecla para continuar...");
-Console.ReadKey();
+builder.Services.AddScoped<ICqrsMediator, CqrsMediator>();
 
-for (Cliente cliente = iterator.First(); !iterator.IsDone; cliente = iterator.Next())
+builder.Services.AddControllers();
+
+builder.Services.AddHttpContextAccessor();
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    Console.WriteLine($"Id: [{cliente.Id}]  Nome: [{cliente.Nome}]");
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
-Console.ReadKey();
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
